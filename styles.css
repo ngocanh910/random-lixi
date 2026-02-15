@@ -130,12 +130,13 @@ h1 {
   inset: 0;
   border-radius: 20px;
   box-shadow: var(--shadow);
-  img{
+
+}
+ .card img{
     width: 220px;
     height: 260px;
     border-radius: 20px;
   }
-}
 
 .card.gold {
 
