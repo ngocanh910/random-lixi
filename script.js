@@ -1,10 +1,8 @@
 ﻿const options = [
-  { label: "5.000 VND", value: "5.000 VND", note: "Mở đầu may mắn.", type: "money", color: "#1f7a5c", image: "assets/5000.png" },
-  { label: "50.000 VND", value: "50.000 VND", note: "Lộc nhỏ nhưng vui.", type: "money", color: "#2b6bbf", image: "assets/50000.png" },
-  { label: "100.000 VND", value: "100.000 VND", note: "Một ngày thuận lợi.", type: "money", color: "#b8283b", image: "assets/100000.png" },
-  { label: "200.000 VND", value: "200.000 VND", note: "Tài lộc gõ cửa.", type: "money", color: "#6e3fb5", image: "assets/200000.png" },
-  { label: "500.000 VND", value: "500.000 VND", note: "Đỉnh của may mắn.", type: "money", color: "#c97c2a", image: "assets/500000.png" },
-  { label: "Chúc bạn may mắn lần sau", value: "Chúc bạn may mắn lần sau", note: "Bao lì xì đỏ để giữ lộc.", type: "luck", color: "#d81b2c", image: "assets/lucky-next-time.png" }
+  { label: "50.000 VND", value: "50.000 VND", note: "Lộc nhỏ nhưng vui.", type: "money", color: "#2b6bbf", image: "assets/50k.webp" },
+  { label: "100.000 VND", value: "100.000 VND", note: "Một ngày thuận lợi.", type: "money", color: "#b8283b", image: "assets/100k.webp" },
+  { label: "200.000 VND", value: "200.000 VND", note: "Tài lộc gõ cửa.", type: "money", color: "#6e3fb5", image: "assets/200k.webp" },
+  { label: "500.000 VND", value: "500.000 VND", note: "Đỉnh của may mắn.", type: "money", color: "#c97c2a", image: "assets/500k.webp" },
 ];
 
 const optionList = document.getElementById("optionList");
@@ -52,6 +50,8 @@ const makeEnvelopeSvg = () => {
   return `data:image/svg+xml,${encodeURIComponent(svg.trim())}`;
 };
 
+const spinImage = "assets/lixi.png";
+
 const enrichOptions = options.map((item) => {
   const fallbackImage = item.type === "money"
     ? makeBanknoteSvg(item.label, item.color)
@@ -88,7 +88,7 @@ const spin = () => {
 
   const tick = () => {
     const current = enrichOptions[index % enrichOptions.length];
-    resultMedia.innerHTML = `<img src="${current.image}" alt="${current.label}" />`;
+    resultMedia.innerHTML = `<img src="${spinImage}" alt="Lì xì" />`;
     resultLabel.textContent = "Đang quay";
     resultValue.textContent = current.label;
     resultNote.textContent = "Hồi hộp chút nhé...";
@@ -115,3 +115,5 @@ const spin = () => {
 
 spinBtn.addEventListener("click", spin);
 renderOptions();
+
+
