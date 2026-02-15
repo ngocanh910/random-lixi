@@ -130,21 +130,31 @@ h1 {
   inset: 0;
   border-radius: 20px;
   box-shadow: var(--shadow);
+  img{
+    width: 220px;
+    height: 260px;
+    border-radius: 20px;
+  }
 }
 
 .card.gold {
-  background: linear-gradient(140deg, #f7d36f, #e3a238);
+
   transform: rotate(-6deg) translateY(18px);
 }
 
 .card.red {
-  background: linear-gradient(140deg, #ff5b6b, #c30f2e);
+
   transform: rotate(2deg);
 }
 
 .card.teal {
-  background: linear-gradient(140deg, #3ad3c0, #0f7b6e);
+ 
   transform: rotate(9deg) translateY(-18px);
+}
+
+.card.teals {
+ 
+  transform: rotate(18deg) translateY(-32px);
 }
 
 .result {
