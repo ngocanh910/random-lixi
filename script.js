@@ -1,10 +1,10 @@
 ﻿const options = [
-  { label: "5.000 VND", value: "5.000 VND", note: "Mở đầu may mắn.", type: "money", color: "#1f7a5c" },
-  { label: "50.000 VND", value: "50.000 VND", note: "Lộc nhỏ nhưng vui.", type: "money", color: "#2b6bbf" },
-  { label: "100.000 VND", value: "100.000 VND", note: "Một ngày thuận lợi.", type: "money", color: "#b8283b" },
-  { label: "200.000 VND", value: "200.000 VND", note: "Tài lộc gõ cửa.", type: "money", color: "#6e3fb5" },
-  { label: "500.000 VND", value: "500.000 VND", note: "Đỉnh của may mắn.", type: "money", color: "#c97c2a" },
-  { label: "Chúc bạn may mắn lần sau", value: "Chúc bạn may mắn lần sau", note: "Bao lì xì đỏ để giữ lộc.", type: "luck", color: "#d81b2c" }
+  { label: "5.000 VND", value: "5.000 VND", note: "Mở đầu may mắn.", type: "money", color: "#1f7a5c", image: "assets/5000.png" },
+  { label: "50.000 VND", value: "50.000 VND", note: "Lộc nhỏ nhưng vui.", type: "money", color: "#2b6bbf", image: "assets/50000.png" },
+  { label: "100.000 VND", value: "100.000 VND", note: "Một ngày thuận lợi.", type: "money", color: "#b8283b", image: "assets/100000.png" },
+  { label: "200.000 VND", value: "200.000 VND", note: "Tài lộc gõ cửa.", type: "money", color: "#6e3fb5", image: "assets/200000.png" },
+  { label: "500.000 VND", value: "500.000 VND", note: "Đỉnh của may mắn.", type: "money", color: "#c97c2a", image: "assets/500000.png" },
+  { label: "Chúc bạn may mắn lần sau", value: "Chúc bạn may mắn lần sau", note: "Bao lì xì đỏ để giữ lộc.", type: "luck", color: "#d81b2c", image: "assets/lucky-next-time.png" }
 ];
 
 const optionList = document.getElementById("optionList");
@@ -53,10 +53,10 @@ const makeEnvelopeSvg = () => {
 };
 
 const enrichOptions = options.map((item) => {
-  const image = item.type === "money"
+  const fallbackImage = item.type === "money"
     ? makeBanknoteSvg(item.label, item.color)
     : makeEnvelopeSvg();
-  return { ...item, image };
+  return { ...item, image: item.image || fallbackImage };
 });
 
 const renderOptions = () => {
